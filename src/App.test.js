@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import './utils.js'
-import { getArrayOfKeysAndValues, getFilteredKey, sortedArraysByValuesLength, sortedKeys, getHouses, updateNumbers, totalCharacters, hasChildrenEntries, sortByChildren } from './utils.js';
+import { getArrayOfKeysAndValues, getFilteredKey, sortedArraysByValuesLength, sortedKeys, getHouses, updateNumbers, totalCharacters, hasChildrenEntries, sortByChildren, howMuchPencil, wordsToCharList } from './utils.js';
 
 // test('test 1', () => {
 
@@ -246,4 +246,47 @@ test('sort by child ', () => {
   const expected = [ {name: 'Euron', spouse: null, children: [], house: 'Greyjoy'}, { name: 'Jon S.', spouse: null, children: [],house: 'Snow'}, {name: 'Jon A.', spouse: 'Lysa', children: ['Robin'], house: 'Arryn'}, {name: 'Mace', spouse: 'Alerie', children: ['Margaery', 'Loras'], house: 'Tyrell'}, { name: 'Cersei',spouse: 'Robert', children: ['Joffrey', 'Myrcella', 'Tommen'], house: 'Lannister'}, {name: 'Daenarys', spouse: 'Khal Drogo', children: ['Drogon', 'Rhaegal', 'Viserion'], house: 'Targaryen'}, {name: 'Eddard', spouse: 'Catelyn', children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'], house: 'Stark'}]
   expect(output).toEqual(expected); //assert
   
+});
+
+
+test('test howmuchpencil', () => {
+
+  const expected = ["Welcome", "elcome", "lcome", "come", "ome", "me", "e", ""];
+  const input = 'Welcome';
+  const output = howMuchPencil(input);
+  
+  expect(output).toEqual(expected);
+});
+
+test('test wordstoCahrlist', () => {
+
+  const expected = ['G', 'r', 'e', 'g', 'o', 'r'];
+  const input = 'Gregor';
+  const output = wordsToCharList(input);
+  
+  expect(output).toEqual(expected);
+});
+test('test wordstoCahrlist size', () => {
+
+  const expected = 6;
+  const input = 'Gregor';
+  const output = wordsToCharList(input);
+  
+  expect(output.length).toEqual(expected);
+});
+test('test wordstoCahrlist hooray', () => {
+
+  const expected = ['h', 'o', 'o', 'r', 'a', 'y'];
+  const input = 'hooray';
+  const output = wordsToCharList(input);
+  
+  expect(output).toEqual(expected);
+});
+test('test wordstoCahrlist empty string', () => {
+
+  const expected = [];
+  const input = '';
+  const output = wordsToCharList(input);
+  
+  expect(output).toEqual(expected);
 });
