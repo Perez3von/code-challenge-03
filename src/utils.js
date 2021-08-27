@@ -133,3 +133,83 @@ export function hasChildrenEntries(arr, character) {
         return str.slice(0, -numberOfCharacters);
     }
     }
+
+
+    export function returnTen(str) {
+        let arr = [];
+        if(str.length >= 10){
+          
+          for(let i = 1; i<=10; i++){
+            
+            arr.push(str[str.length-i]);
+              
+            }
+        }
+        else{return [...str]}
+         
+        return arr.reverse();
+    
+    }
+
+
+    export function findMax(matrix) {
+
+        let max = 0;
+
+        matrix.map((arr) =>(
+
+        arr.map(ele => {if(ele>max){max = ele} return max})
+
+         ))
+
+         return max;
+    
+    }
+
+    
+    export function totalSum(matrix) {
+
+        let max = 0;
+
+        matrix.map((arr) =>(
+
+        arr.map(ele => {return max = max + ele})
+
+         ))
+
+         return max;
+    
+    }
+
+
+    export function salesData(hours, data){
+        let arr =[];
+
+        for(let i=0;i<hours.length;i++){
+
+            arr.push({sales:`${data[i]} cookies`,
+            time:hours[i]})
+        }
+        return arr;
+    
+    }
+
+export function grandTotal(stores){
+
+
+    let arr =[];
+
+     for(let i =0; i<stores[0].length;i++){
+         let sum =0;
+         
+         for(let j =0; j<stores.length;j++){
+            sum = stores[j][i] + sum;
+            
+     }
+     arr.push(sum);
+}
+
+return arr;
+
+
+}
